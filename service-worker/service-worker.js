@@ -1,6 +1,6 @@
 self.addEventListener('install', event => {
     const tld = location.hostname.split('.').pop();
-    var offlineRequest = new Request(`offline.${tld}.html`);
+    var offlineRequest = new Request(`/service-worker/offline-pages/offline.${tld}.html`);
 
     event.waitUntil(
         fetch(offlineRequest).then(function(response) {
@@ -22,7 +22,7 @@ self.addEventListener('fetch', event => {
         // Only provide fallback for HTML content
         const tld = location.hostname.split('.').pop();
         const htmlFetchWithFallback = fetch(event.request).catch(function() {
-            return caches.match(`offline.${tld}.html`);
+            return caches.match(`/service-worker/offline-pages/offline.${tld}.html`);
         });
 
         event.respondWith(htmlFetchWithFallback);
