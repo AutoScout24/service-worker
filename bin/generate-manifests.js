@@ -36,6 +36,8 @@ urls.forEach(url => {
               sizes: "192x192",
               type: "image/png"
             }],
+            theme_color: '#FF7500',
+            background_color: '#003468'
         };
 
         fs.writeFileSync(path.resolve(process.cwd(), `manifest.${tld}.json`), JSON.stringify(manifest, null, 4));
