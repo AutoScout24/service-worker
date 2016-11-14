@@ -2,7 +2,7 @@
     "name": "AutoScout24",
     "short_name": "AutoScout24",
     "start_url": "/?ipl=home-screen&ipc=launch",
-    "description": "Neu- und Gebrauchtwagen sowie Motorräder, Wohnmobile und Nutzfahrzeuge finden Sie auf AutoScout24, dem europaweit größten Online-Automarkt.",
+    "description": "AutoScout24: Големият европейски пазар за употребявани и нови автомобили. Вашият автомобилен портал за продажба и покупка на автомобили с новини и информация около колата.",
     "orientation": "any",
     "display": "standalone",
     "icons": [

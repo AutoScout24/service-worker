@@ -1,0 +1,24 @@
+{
+  "name": "service-worker",
+  "version": "1.0.0",
+  "description": "",
+  "main": "service-worker.js",
+  "scripts": {
+    "generate-manifests": "node bin/generate-manifests.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AutoScout24/service-worker.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AutoScout24/service-worker/issues"
+  },
+  "homepage": "https://github.com/AutoScout24/service-worker#readme",
+  "devDependencies": {
+    "axios": "^0.15.2",
+    "cheerio": "^0.22.0"
+  }
+}
