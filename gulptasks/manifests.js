@@ -5,7 +5,8 @@ const path = require('path');
 
 module.exports = (gulp, plugins, options) => {
     const urls = [
-        // TODO: What about be? Which language? 'https://www.autoscout24.be/',
+        // TODO: What about be? Which language? 
+        'https://www.autoscout24.be/',
         'https://www.autoscout24.de/',
         'https://www.autoscout24.at/',
         'https://www.autoscout24.it/',
@@ -17,7 +18,12 @@ module.exports = (gulp, plugins, options) => {
         'https://www.autoscout24.cz/',
         'https://www.autoscout24.bg/',
         'https://www.autoscout24.ro/',
+        'https://www.autoscout24.ru',
         'https://www.autoscout24.pl/',
+        'https://www.autoscout24.ua/',
+        'https://www.autoscout24.hr',
+        'https://www.autoscout24.sk',
+        'https://www.autoscout24.tr',
         'https://www.autoscout24.com/',
     ];
 
