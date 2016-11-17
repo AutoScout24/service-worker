@@ -33,7 +33,7 @@ module.exports = (gulp, plugins, options) => {
         },
         // What to do with be?
         be: {
-            lang: 'fr/nl',
+            lang: '',
             text: 'Aucune connexion Internet / Er is geen internetverbinding beschikbaar',
             buttonText: 'Actualiser cette page / Deze pagina opnieuw laden'
         },
@@ -63,7 +63,7 @@ module.exports = (gulp, plugins, options) => {
             buttonText: 'Презаредете тази страница'
         },
         cz: {
-            lang: 'cz',
+            lang: 'cs',
             text: 'Připojení k internetu není k dispozici',
             buttonText: 'Načíst tuto stránku znovu'
         },
@@ -87,8 +87,8 @@ module.exports = (gulp, plugins, options) => {
             text: 'Нет подключения к Интернету',
             buttonText: 'Oбновить эту страницу'
         },
-        sk: {
-            lang: 'sk',
+        se: {
+            lang: 'sv',
             text: 'Det finns ingen internetanslutning',
             buttonText: 'Hämta sidan igen'
         },
@@ -104,7 +104,7 @@ module.exports = (gulp, plugins, options) => {
         }
     };
 
-    const tlds = ['de', 'at', 'nl', 'it', 'fr', 'lu', 'es', 'hu', 'cz', 'bg', 'ro', 'pl', 'hr', 'ru', 'sk', 'tr', 'ua', 'com', 'localhost'];
+    const tlds = ['de', 'at', 'nl', 'it', 'fr', 'lu', 'es', 'hu', 'cz', 'bg', 'ro', 'pl', 'hr', 'ru', 'se', 'tr', 'ua', 'com', 'localhost'];
 
     tlds.forEach(tld =>{
         const html = nunjucks.render('offline-page-template.html', data[tld] || data['en']);
