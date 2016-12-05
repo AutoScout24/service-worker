@@ -7,6 +7,7 @@
 </head>
 <body>
     <h1>TEST Page</h1>
+    <!--#include virtual="/service-worker/fragment.html -->
     <script>
         if ('serviceWorker' in navigator) {
             navigator.serviceWorker.register('/service-worker/service-worker.js', { scope: '/' }).catch(e => {
