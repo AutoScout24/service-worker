@@ -1,0 +1,17 @@
+{
+    "name": "AutoScout24",
+    "short_name": "AutoScout24",
+    "start_url": "/?ipl=home-screen&ipc=launch",
+    "description": "AutoScout24: Големият европейски пазар за употребявани и нови автомобили. Вашият автомобилен портал за продажба и покупка на автомобили с новини и информация около колата.",
+    "orientation": "any",
+    "display": "standalone",
+    "icons": [
+        {
+            "src": "https://www.autoscout24.de/assets/external/home/1518/images/favicon/favicon-192x192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        }
+    ],
+    "theme_color": "#FF7500",
+    "background_color": "#003468"
+}

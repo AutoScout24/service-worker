@@ -1,0 +1,29 @@
+{
+  "name": "service-worker",
+  "version": "0.0.3",
+  "description": "",
+  "main": "service-worker.js",
+  "scripts": {
+    "generate-manifests": "node bin/generate-manifests.js",
+    "build": "gulp manifests offline-pages"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AutoScout24/service-worker.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "tbd",
+  "bugs": {
+    "url": "https://github.com/AutoScout24/service-worker/issues"
+  },
+  "homepage": "https://github.com/AutoScout24/service-worker#readme",
+  "devDependencies": {
+    "axios": "^0.15.2",
+    "browser-sync": "^2.17.6",
+    "cheerio": "^0.22.0",
+    "gulp": "^3.9.1",
+    "gulp-load-plugins": "^1.4.0",
+    "nunjucks": "^3.0.0"
+  }
+}

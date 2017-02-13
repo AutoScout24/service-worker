@@ -1,0 +1,17 @@
+{
+    "name": "AutoScout24",
+    "short_name": "AutoScout24",
+    "start_url": "/?ipl=home-screen&ipc=launch",
+    "description": "AutoScout24: Cel mai mare site de vânzări auto din Europa pentru autovehicule rulate şi noi Portalul dumneavoastră de vânzări şi cumpărări auto cu noutăţi şi informaţii din lumea auto.",
+    "orientation": "any",
+    "display": "standalone",
+    "icons": [
+        {
+            "src": "https://www.autoscout24.de/assets/external/home/1518/images/favicon/favicon-192x192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        }
+    ],
+    "theme_color": "#FF7500",
+    "background_color": "#003468"
+}
