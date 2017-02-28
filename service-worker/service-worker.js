@@ -18,7 +18,7 @@ self.addEventListener('activate', event => {
 });
 
 self.addEventListener('fetch', event => {
-    if (event.request.method === 'GET' && !/\.(css|js|png|jpg|jpeg|svg)/i.test(event.request.url)) {
+    if (event.request.mode === 'navigate' || (event.request.method === 'GET' && event.request.headers.get('accept').includes('text/html'))) {
         // Only provide fallback for HTML content
         const tld = location.hostname.split('.').pop();
         const htmlFetchWithFallback = fetch(event.request).catch(function() {
