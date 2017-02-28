@@ -1,22 +1,25 @@
 <script>
-    if ('serviceWorker' in navigator) {
-        navigator.serviceWorker.register('/service-worker/service-worker.js', { scope: '/' }).catch(e => {
-            console.error('Error when regisering: ', e);
-        });
+    try {
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register(`/service-worker/service-worker.js`, { scope: '/' }).catch(e => {
+                console.error('Error when registering service worker: ', e);
+                setTimeout(() => { throw e; });
+            });
 
-        window.addEventListener('beforeinstallprompt', e => {
-            window.ut = window.ut || [];
-            ut.push(['gtm', 'click', {
-                linkgroup: 'add-to-home-screen',
-                linkid: 'prompted'
-            }]);
-
-            e.userChoice.then(choiceResult => {
+            window.addEventListener('beforeinstallprompt', e => {
+                window.ut = window.ut || [];
                 ut.push(['gtm', 'click', {
                     linkgroup: 'add-to-home-screen',
-                    linkid: choiceResult.outcome
+                    linkid: 'prompted'
                 }]);
+
+                e.userChoice.then(choiceResult => {
+                    ut.push(['gtm', 'click', {
+                        linkgroup: 'add-to-home-screen',
+                        linkid: choiceResult.outcome
+                    }]);
+                });
             });
-        });
-    }
+        }
+    } catch(ex) {}
 </script>
