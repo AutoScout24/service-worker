@@ -3,21 +3,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <script>
+    'use strict';
     try {
         if ('serviceWorker' in navigator) {
-            navigator.serviceWorker.register('/service-worker/serviceworker.js', { scope: '/' }).catch(e => {
+            navigator.serviceWorker.register('/service-worker/serviceworker.js', { scope: '/' }).catch(function (e) {
                 console.error('Error when registering service worker: ', e);
-                setTimeout(() => { throw e; });
+                setTimeout(function () {
+                    throw e;
+                });
             });
 
-            window.addEventListener('beforeinstallprompt', e => {
+            window.addEventListener('beforeinstallprompt', function (e) {
                 window.ut = window.ut || [];
                 ut.push(['gtm', 'click', {
                     linkgroup: 'add-to-home-screen',
                     linkid: 'prompted'
                 }]);
 
-                e.userChoice.then(choiceResult => {
+                e.userChoice.then(function (choiceResult) {
                     ut.push(['gtm', 'click', {
                         linkgroup: 'add-to-home-screen',
                         linkid: choiceResult.outcome
@@ -25,5 +28,5 @@
                 });
             });
         }
-    } catch(ex) {}
+    } catch (ex) {}
 </script>

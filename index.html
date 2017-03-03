@@ -9,19 +9,20 @@
     <h1>TEST Page</h1>
     <!--#include virtual="/service-worker/service-worker-fragment.html -->
     <script>
+        'use strict';
         if ('serviceWorker' in navigator) {
-            navigator.serviceWorker.register('/service-worker/service-worker.js', { scope: '/' }).catch(e => {
+            navigator.serviceWorker.register('/service-worker/service-worker.js', { scope: '/' }).catch(function (e) {
                 console.error('Error when regisering: ', e);
             });
 
-            window.addEventListener('beforeinstallprompt', e => {
+            window.addEventListener('beforeinstallprompt', function (e) {
                 window.ut = window.ut || [];
                 ut.push(['gtm', 'click', {
                     linkgroup: 'add-to-home-screen',
                     linkid: 'prompted'
                 }]);
 
-                e.userChoice.then(choiceResult => {
+                e.userChoice.then(function (choiceResult) {
                     ut.push(['gtm', 'click', {
                         linkgroup: 'add-to-home-screen',
                         linkid: choiceResult.outcome

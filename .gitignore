@@ -136,3 +136,4 @@ Temporary Items
 .vscode/
 tsconfig.json
 jsconfig.json
+.idea
