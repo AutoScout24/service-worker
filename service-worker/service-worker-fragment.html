@@ -5,7 +5,7 @@
 <script>
     try {
         if ('serviceWorker' in navigator) {
-            navigator.serviceWorker.register(`/service-worker/serviceworker.js`, { scope: '/' }).catch(e => {
+            navigator.serviceWorker.register('/service-worker/serviceworker.js', { scope: '/' }).catch(e => {
                 console.error('Error when registering service worker: ', e);
                 setTimeout(() => { throw e; });
             });
