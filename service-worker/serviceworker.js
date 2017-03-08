@@ -33,7 +33,7 @@ self.addEventListener('fetch', function (event) {
             headers: event.request.headers,
             mode: event.request.mode == 'navigate' ? 'cors' : event.request.mode,
             credentials: event.request.credentials,
-            header:location.origin,
+            refferer:location.origin,
             redirect: event.request.redirect
         });
 
