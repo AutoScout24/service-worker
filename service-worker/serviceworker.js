@@ -2,8 +2,7 @@
 
 self.addEventListener('install', function (event) {
     var tld = location.hostname.split('.').pop();
-    var referrer = new URL("/service-worker/serviceworker.js", location).href;
-    var offlineRequest = new Request('/service-worker/offline-pages/offline.' + tld + '.html',{referrer: referrer});
+    var offlineRequest = new Request('/service-worker/offline-pages/offline.' + tld + '.html',{referrer: location.origin});
 
     event.waitUntil(fetch(offlineRequest).then(function (response) {
         return caches.open('offline').then(function (cache) {
