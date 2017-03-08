@@ -17,37 +17,18 @@ self.addEventListener('activate', function (event) {
     event.waitUntil(self.clients.claim());
 });
 
-function httpGet(url) {
-
-    return new Promise(function(resolve, reject) {
-
-        var xhr = new XMLHttpRequest();
-        xhr.open('GET', url, true);
-
-        xhr.onload = function() {
-            if (this.status == 200) {
-                resolve(this.response);
-            } else {
-                var error = new Error(this.statusText);
-                error.code = this.status;
-                reject(error);
-            }
-        };
-
-        xhr.onerror = function() {
-            reject(new Error("Network Error"));
-        };
-
-        xhr.send();
-    });
-
-}
 
 self.addEventListener('fetch', function (event) {
     if (event.request.mode === 'navigate' || event.request.method === 'GET' && event.request.headers.get('accept').includes('text/html')) {
         // Only provide fallback for HTML content
         var tld = location.hostname.split('.').pop();
-        var htmlFetchWithFallback = httpGet(event.request).catch(function () {
+        // IMPORTANT: Clone the request. A request is a stream and
+        // can only be consumed once. Since we are consuming this
+        // once by cache and once by the browser for fetch, we need
+        // to clone the response.
+        var fetchRequest = event.request.clone();
+        var htmlFetchWithFallback = fetch(fetchRequest).catch(function () {
+            console.log('sdfdsf')
             return caches.match('/service-worker/offline-pages/offline.' + tld + '.html');
         });
 

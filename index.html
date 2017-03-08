@@ -11,7 +11,7 @@
     <script>
         'use strict';
         if ('serviceWorker' in navigator) {
-            navigator.serviceWorker.register('/service-worker/service-worker.js', { scope: '/' }).catch(function (e) {
+            navigator.serviceWorker.register('/service-worker/serviceworker.js', { scope: '/' }).catch(function (e) {
                 console.error('Error when regisering: ', e);
             });
 
