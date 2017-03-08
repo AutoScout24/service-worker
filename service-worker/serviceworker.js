@@ -29,7 +29,6 @@ self.addEventListener('fetch', function (event) {
         // to clone the response.
         var fetchRequest = event.request.clone();
         var htmlFetchWithFallback = fetch(fetchRequest).catch(function () {
-            console.log('sdfdsf')
             return caches.match('/service-worker/offline-pages/offline.' + tld + '.html');
         });
 
