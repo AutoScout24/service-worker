@@ -27,7 +27,7 @@ self.addEventListener('fetch', function (event) {
         // once by cache and once by the browser for fetch, we need
         // to clone the response.
         var fetchRequest = event.request.clone();
-        var htmlFetchWithFallback = fetch(fetchRequest).catch(function () {
+        var htmlFetchWithFallback = fetch(fetchRequest,{referrer: location.origin}).catch(function () {
             return caches.match('/service-worker/offline-pages/offline.' + tld + '.html');
         });
 
