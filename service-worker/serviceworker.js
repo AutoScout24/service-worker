@@ -26,8 +26,18 @@ self.addEventListener('fetch', function (event) {
         // can only be consumed once. Since we are consuming this
         // once by cache and once by the browser for fetch, we need
         // to clone the response.
-        var fetchRequest = event.request.clone();
-        var htmlFetchWithFallback = fetch(fetchRequest,{referrer: location.origin}).catch(function () {
+        // var fetchRequest = event.request.clone();
+
+        var request = new Request(event.request.url, {
+            method: 'GET',
+            headers: event.request.headers,
+            mode: event.request.mode == 'navigate' ? 'cors' : event.request.mode,
+            credentials: event.request.credentials,
+            header:location.origin,
+            redirect: event.request.redirect
+        });
+
+        var htmlFetchWithFallback = fetch(request).catch(function () {
             return caches.match('/service-worker/offline-pages/offline.' + tld + '.html');
         });
 
