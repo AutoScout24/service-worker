@@ -18,12 +18,11 @@ self.addEventListener('install', function (event) {
 self.addEventListener('activate', function (event) {
     event.waitUntil(self.clients.claim());
 
-    // cleanup cache
     event.waitUntil(
         caches.keys().then(cacheNames => {
             return Promise.all(
                 cacheNames.map(cacheName => {
-                    if (CACHE_NAME.indexOf(cacheName) === -1) {
+                    if (CACHE_NAME !== cacheName) {
                         return caches.delete(cacheName);
                     }
                 })
@@ -33,7 +32,8 @@ self.addEventListener('activate', function (event) {
 });
 
 self.addEventListener('fetch', function (event) {
-    if (event.request.mode === 'navigate' || event.request.method === 'GET' && event.request.headers.get('accept').includes('text/html')) {
+
+    if ((event.request.mode === 'navigate' || event.request.method === 'GET') && event.request.headers.get('accept').includes('text/html')) {
         // Only provide fallback for HTML content
         var tld = location.hostname.split('.').pop();
         var htmlFetchWithFallback = fetch(event.request).catch(function () {
