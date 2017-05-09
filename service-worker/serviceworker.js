@@ -1,13 +1,13 @@
 'use strict';
 
-const version = 'v1';
+var CACHE_NAME = 'offline-v1';
 
 self.addEventListener('install', function (event) {
     var tld = location.hostname.split('.').pop();
     var offlineRequest = new Request('/service-worker/offline-pages/offline.' + tld + '.html');
 
     event.waitUntil(fetch(offlineRequest).then(function (response) {
-        return caches.open('offline-' + version).then(function (cache) {
+        return caches.open(CACHE_NAME).then(function (cache) {
             return cache.put(offlineRequest, response);
         });
     }));
@@ -17,6 +17,19 @@ self.addEventListener('install', function (event) {
 
 self.addEventListener('activate', function (event) {
     event.waitUntil(self.clients.claim());
+
+    // cleanup cache
+    event.waitUntil(
+        caches.keys().then(cacheNames => {
+            return Promise.all(
+                cacheNames.map(cacheName => {
+                    if (CACHE_NAME.indexOf(cacheName) === -1) {
+                        return caches.delete(cacheName);
+                    }
+                })
+            );
+        })
+    );
 });
 
 self.addEventListener('fetch', function (event) {
