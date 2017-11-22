@@ -2,7 +2,7 @@
     "name": "AutoScout24",
     "short_name": "AutoScout24",
     "start_url": "/?ipl=home-screen&ipc=launch",
-    "description": "+200 000 voitures neuves et occasions, motos et utilitaires en France -  2 245 797 en Europe , acheter et vendre auto, moto, utilitaire, petites  annonces auto gratuites, auto occasion et neuve. Conseils pour l'achat et la vente de voiture d' occasion.",
+    "description": "Voitures d'occasion à vendre! Plus que 2.700.000 voitures occasions et neuves à vendre en Europe avec AutoScout24.",
     "orientation": "any",
     "display": "standalone",
     "icons": [
@@ -10,8 +10,13 @@
             "src": "https://www.autoscout24.de/assets/external/home/1518/images/favicon/favicon-192x192.png",
             "sizes": "192x192",
             "type": "image/png"
+        },
+        {
+            "src": "https://www.autoscout24.de/assets/external/home/1974/images/favicon/favicon-512x512.png",
+            "sizes": "512x512",
+            "type": "image/png"
         }
     ],
-    "theme_color": "#FF7500",
-    "background_color": "#003468"
+    "theme_color": "#fff",
+    "background_color": "#fff"
 }

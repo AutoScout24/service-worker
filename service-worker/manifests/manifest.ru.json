@@ -2,7 +2,7 @@
     "name": "AutoScout24",
     "short_name": "AutoScout24",
     "start_url": "/?ipl=home-screen&ipc=launch",
-    "description": "Test description",
+    "description": "Автобазар, продажа новых и подержанных автомобилей. АвтоСкаут24 предлагает последние новости, тесты и другие новинки из мира автомобилей и мотоциклов",
     "orientation": "any",
     "display": "standalone",
     "icons": [
