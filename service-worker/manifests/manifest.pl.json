@@ -1,7 +1,7 @@
 {
     "name": "AutoScout24",
     "short_name": "AutoScout24",
-    "start_url": "./?ipl=home-screen&ipc=launch",
+    "start_url": "/?ipl=home-screen&ipc=launch",
     "description": "AutoScout24: Twój europejski portal z samochodami używanymi. Znajdziesz tu ogromny wybór samochodów z Niemiec i Europy.",
     "orientation": "any",
     "display": "standalone",

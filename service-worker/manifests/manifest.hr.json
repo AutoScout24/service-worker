@@ -1,7 +1,7 @@
 {
     "name": "AutoScout24",
     "short_name": "AutoScout24",
-    "start_url": "./?ipl=home-screen&ipc=launch",
+    "start_url": "/?ipl=home-screen&ipc=launch",
     "description": "Najveći europski auto oglasnik za rabljena i nova vozila. Vaš portal za kupnju i prodaju automobila s vijestima i informacijama iz svijeta automobila.",
     "orientation": "any",
     "display": "standalone",

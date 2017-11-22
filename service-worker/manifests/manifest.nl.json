@@ -1,7 +1,7 @@
 {
     "name": "AutoScout24",
     "short_name": "AutoScout24",
-    "start_url": "./?ipl=home-screen&ipc=launch",
+    "start_url": "/?ipl=home-screen&ipc=launch",
     "description": "Europa's online auto marktplaats voor het kopen en verkopen van tweedehands auto's. Altijd 1,8 miljoen occasions online bij AutoScout24!",
     "orientation": "any",
     "display": "standalone",

@@ -1,7 +1,7 @@
 {
     "name": "AutoScout24",
     "short_name": "AutoScout24",
-    "start_url": "./?ipl=home-screen&ipc=launch",
+    "start_url": "/?ipl=home-screen&ipc=launch",
     "description": "AutoScout24: Големият европейски пазар за употребявани и нови автомобили. Вашият автомобилен портал за продажба и покупка на автомобили с новини и информация около колата.",
     "orientation": "any",
     "display": "standalone",

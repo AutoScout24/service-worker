@@ -31,7 +31,7 @@ module.exports = (gulp, plugins, options) => {
         return {
             name: 'AutoScout24',
             short_name: "AutoScout24",
-            start_url: './?ipl=home-screen&ipc=launch',
+            start_url: '/?ipl=home-screen&ipc=launch',
             description,
             orientation: 'any',
             display: 'standalone',
