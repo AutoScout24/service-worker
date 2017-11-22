@@ -1,7 +1,7 @@
 {
     "name": "AutoScout24",
     "short_name": "AutoScout24",
-    "start_url": "/?ipl=home-screen&ipc=launch",
+    "start_url": "./?ipl=home-screen&ipc=launch",
     "description": "Test description",
     "orientation": "any",
     "display": "standalone",

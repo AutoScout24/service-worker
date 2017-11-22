@@ -1,7 +1,7 @@
 {
     "name": "AutoScout24",
     "short_name": "AutoScout24",
-    "start_url": "/?ipl=home-screen&ipc=launch",
+    "start_url": "./?ipl=home-screen&ipc=launch",
     "description": "Find your next used car on AutoScout24. Search for used cars, new cars, motorcycles and trucks on Europe's biggest online vehicle marketplace.",
     "orientation": "any",
     "display": "standalone",

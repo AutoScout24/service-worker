@@ -1,7 +1,7 @@
 {
     "name": "AutoScout24",
     "short_name": "AutoScout24",
-    "start_url": "/?ipl=home-screen&ipc=launch",
+    "start_url": "./?ipl=home-screen&ipc=launch",
     "description": "AutoScout24: Cel mai mare site de vânzări auto din Europa pentru autovehicule rulate şi noi Portalul dumneavoastră de vânzări şi cumpărări auto cu noutăţi şi informaţii din lumea auto.",
     "orientation": "any",
     "display": "standalone",

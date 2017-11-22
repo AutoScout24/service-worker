@@ -1,7 +1,7 @@
 {
     "name": "AutoScout24",
     "short_name": "AutoScout24",
-    "start_url": "/?ipl=home-screen&ipc=launch",
+    "start_url": "./?ipl=home-screen&ipc=launch",
     "description": "Voitures d'occasion à vendre! Plus que 2.700.000 voitures occasions et neuves à vendre en Europe avec AutoScout24.",
     "orientation": "any",
     "display": "standalone",
