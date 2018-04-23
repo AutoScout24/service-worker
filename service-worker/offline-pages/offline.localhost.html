@@ -74,5 +74,29 @@
     <div class="copyright">
         <p>© Copyright 2018 AutoScout24 GmbH. Alle Rechte vorbehalten.</p>
     </div>
+    <script>
+        
+        navigator.serviceWorker.ready.then(function(registration) {
+            function getCid() {
+                try {
+                    return /_asga=GA.*\.*\.(\d+\.\d+);/.exec(document.cookie)[1];
+                } catch(ex) {
+                    return '';
+                }
+            }
+
+            const data = {
+                date: Date.now(),
+                pageid: 'offline-page',
+                ga: {
+                    cid: getCid(),
+                    sr: `${window.screen.width}x${window.screen.height}`,
+                    vp: `${document.documentElement.clientWidth}x${document.documentElement.clientHeight}`,
+                }
+            };
+
+            registration.sync.register('offline-tracking-' + JSON.stringify(data));
+        });
+    </script>
 </body>
 </html>
