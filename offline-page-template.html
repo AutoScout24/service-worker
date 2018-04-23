@@ -75,45 +75,17 @@
         <p>© Copyright 2018 AutoScout24 GmbH. Alle Rechte vorbehalten.</p>
     </div>
     <script>
-        function getCid() {
-            try {
-                return /_asga=GA.*\.*\.(\d+\.\d+);/.exec(document.cookie)[1];
-            } catch(ex) {
-                return '';
-            }
-        }
-
-        // (function() {
-        //     const request = indexedDB.open('offline-tracking', 1);
-
-
-        //     request.onsuccess = function(event) {
-        //         const db = event.target.result;
-        //         const transaction = db.transaction(['pageviews'], 'readwrite');
-        //         const objectStore = transaction.objectStore('pageviews');
-
-        //         // Write a pageview into the db so that it can be tracked later when user is online again
-        //         objectStore.add({
-        //             date: Date.now(),
-        //             pageid: 'offline-page',
-        //             ga: {
-        //                 cid: getCid(),
-        //                 sr: `${window.screen.width}x${window.screen.height}`,
-        //                 vp: `${document.documentElement.clientWidth}x${document.documentElement.clientHeight}`,
-        //             }
-        //         });
-        //     };
-
-        //     request.onupgradeneeded = function(event) {
-        //         const db = event.target.result;
-        //         db.createObjectStore('pageviews', { autoIncrement : true });
-        //     };
-        // }());
         
         navigator.serviceWorker.ready.then(function(registration) {
-            // registration.sync.register('offline-tracking');
+            function getCid() {
+                try {
+                    return /_asga=GA.*\.*\.(\d+\.\d+);/.exec(document.cookie)[1];
+                } catch(ex) {
+                    return '';
+                }
+            }
 
-            const x = {
+            const data = {
                 date: Date.now(),
                 pageid: 'offline-page',
                 ga: {
@@ -123,7 +95,7 @@
                 }
             };
 
-            registration.sync.register('offline-tracking-' + JSON.stringify(x));
+            registration.sync.register('offline-tracking-' + JSON.stringify(data));
         });
     </script>
 </body>
