@@ -1,6 +1,6 @@
 'use strict';
 
-var CACHE_NAME = 'offline-v1';
+var CACHE_NAME = 'offline-v2';
 
 self.addEventListener('install', function (event) {
     self.skipWaiting();
