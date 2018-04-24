@@ -17,7 +17,7 @@ git config user.email "${GIT_EMAIL}"
 git config push.default simple
 git checkout $TARGET_BRANCH
 
-mkdir dist
+# mkdir dist
 cp -r ../service-worker/* ./dist
 cp ../package.json .
 
