@@ -7,13 +7,13 @@ fail() {
   exit 1
 }
 
+S3_BUCKET_NAME=`$SERVICE-$ACCOUNT_NAME-$AWS_DEFAULT_REGION`
+
 upload_to_s3() {
-    echo "Uploading to S3"
+    echo "Uploading to S3: destination"
+    echo $S3_BUCKET_NAME
 
-    aws --region "eu-west-1" s3 cp dist "s3://???/${SERVICE}/${BRANCH}/latest/" --recursive --exclude "*.html" --cache-control "max-age=2592000" --acl public-read
-    aws --region "eu-west-1" s3 cp dist "s3://???/${SERVICE}/${BRANCH}/latest/" --recursive --exclude "*" --include "*.html" --cache-control "max-age=300" --acl public-read
-
-    aws --region "eu-west-1" s3 cp dist "s3://???/${SERVICE}/" --recursive --exclude "*" --include "*-fragment.html" --cache-control "max-age=300" --acl public-read
+    aws s3 cp dist "s3:/${S3_BUCKET_NAME}/service-worker/" --recursive --cache-control "max-age=60" --acl public-read
 }
 
 upload_to_s3

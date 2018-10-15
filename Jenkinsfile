@@ -10,7 +10,6 @@ pipeline {
   // Environment variables for all stages
   environment {
     AWS_DEFAULT_REGION="eu-west-1"
-    // VERSION=getInvokedBuildNumber()
     SERVICE="service-worker"
     ECRACCOUNTID="544725753551"
     // USECASE="service-worker"
@@ -41,6 +40,7 @@ pipeline {
     //   }
 
     //   environment {
+    //     ACCOUNT_NAME=as24dev
     //     CPU=64
     //     MEMORY=96
     //   }
@@ -59,6 +59,7 @@ pipeline {
     //   }
 
     //   environment {
+    //     ACCOUNT_NAME=as24dev
     //     CPU=256
     //     MEMORY=256
     //   }
