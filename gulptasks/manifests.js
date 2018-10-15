@@ -20,10 +20,10 @@ module.exports = (gulp, plugins, options) => {
         'https://www.autoscout24.ro/',
         'https://www.autoscout24.ru',
         'https://www.autoscout24.pl/',
-        'https://www.autoscout24.ua/',
-        'https://www.autoscout24.hr',
-        'https://www.autoscout24.sk',
-        'https://www.autoscout24.tr',
+        'https://www.autoscout24.com.ua/',
+        'https://www.autoscout24.hr/',
+        'https://www.autoscout24.se/',
+        'https://www.autoscout24.com.tr/',
         'https://www.autoscout24.com/',
     ];
 
