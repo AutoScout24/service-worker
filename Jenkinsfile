@@ -35,9 +35,7 @@ pipeline {
       }
 
       environment {
-        ACCOUNT_NAME=as24dev
-        CPU=64
-        MEMORY=96
+        ACCOUNT_NAME='as24dev'
       }
 
       agent { node { label 'deploy-as24dev-node' } }
@@ -54,9 +52,7 @@ pipeline {
     //   }
 
     //   environment {
-    //     ACCOUNT_NAME=as24dev
-    //     CPU=256
-    //     MEMORY=256
+    //     ACCOUNT_NAME='as24dev'
     //   }
 
     //   agent { node { label 'deploy-as24prod' } }
