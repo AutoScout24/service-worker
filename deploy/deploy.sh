@@ -7,7 +7,7 @@ fail() {
   exit 1
 }
 
-S3_BUCKET_NAME=$SERVICE-$ACCOUNT_NAME-$AWS_DEFAULT_REGION
+S3_BUCKET_NAME="$SERVICE-$ACCOUNT_NAME-$AWS_DEFAULT_REGION"
 
 upload_to_s3() {
     echo "Uploading to S3: destination"
