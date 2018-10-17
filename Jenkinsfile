@@ -46,21 +46,22 @@ pipeline {
       }
     }
 
-    // stage('DeployProd') {
-    //   when {
-    //     beforeAgent true
-    //     branch 'master'
-    //   }
+    stage('DeployProd') {
+      when {
+        beforeAgent true
+        branch 'master'
+      }
 
-    //   environment {
-    //     ACCOUNT_NAME='as24dev'
-    //   }
+      environment {
+        ACCOUNT_NAME='as24dev'
+      }
 
-    //   agent { node { label 'deploy-as24prod' } }
-    //   steps {
-    //     sh './deploy/deploy.sh'
-    //   }
-    // }
+      agent { node { label 'deploy-as24prod' } }
+      steps {
+        unstash 'output-dist'
+        // sh './deploy/deploy.sh'
+      }
+    }
 
     post { 
       failure { 
