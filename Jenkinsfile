@@ -11,11 +11,6 @@ pipeline {
   environment {
     AWS_DEFAULT_REGION="eu-west-1"
     SERVICE="service-worker"
-    ECRACCOUNTID="544725753551"
-    // USECASE="service-worker"
-    // SEGMENT="cxp"
-    // TEAM="acquisition"
-    // VERTICAL="as24"
   }
 
   stages {
@@ -25,32 +20,32 @@ pipeline {
         branch 'master'
       }
 
-      agent { node { label 'deploy-as24dev-node' } }
+      agent { node { label 'build-node' } }
 
       steps {
         sh './deploy/build.sh'
-        stash includes: 'dist/**/*', name: 'output-dist'
+        stash includes: 'service-worker/**/*', name: 'output-dist'
       }
     }
 
-    // stage('DeployDev') {
-    //   when {
-    //     beforeAgent true
-    //     branch 'master'
-    //   }
+    stage('DeployDev') {
+      when {
+        beforeAgent true
+        branch 'master'
+      }
 
-    //   environment {
-    //     ACCOUNT_NAME=as24dev
-    //     CPU=64
-    //     MEMORY=96
-    //   }
+      environment {
+        ACCOUNT_NAME=as24dev
+        CPU=64
+        MEMORY=96
+      }
 
-    //   agent { node { label 'deploy-as24dev' } }
+      agent { node { label 'deploy-as24dev-node' } }
 
-    //   steps {
-    //     sh 'AccountName=as24dev Prefix=dev- EnvironmentName=dev ./deploy/deploy.sh'
-    //   }
-    // }
+      steps {
+        sh 'AccountName=as24dev Prefix=dev- EnvironmentName=dev ./deploy/deploy.sh'
+      }
+    }
 
     // stage('DeployProd') {
     //   when {
