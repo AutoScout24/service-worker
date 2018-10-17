@@ -38,10 +38,11 @@ pipeline {
         ACCOUNT_NAME='as24dev'
       }
 
-      agent { node { label 'deploy-as24dev-node' } }
+      agent { node { label 'deploy-as24dev' } }
 
       steps {
-        sh 'AccountName=as24dev Prefix=dev- EnvironmentName=dev ./deploy/deploy.sh'
+        unstash 'output-dist'
+        sh './deploy/deploy.sh'
       }
     }
 
@@ -57,7 +58,7 @@ pipeline {
 
     //   agent { node { label 'deploy-as24prod' } }
     //   steps {
-    //     sh 'AccountName=as24prod EnvironmentName=prod ./deploy/deploy.sh'
+    //     sh './deploy/deploy.sh'
     //   }
     // }
   }
