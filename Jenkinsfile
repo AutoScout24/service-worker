@@ -61,5 +61,11 @@ pipeline {
     //     sh './deploy/deploy.sh'
     //   }
     // }
+
+    post { 
+      failure { 
+          echo 'service-worker pipeline failed 💣'
+      }
+    }
   }
 }
