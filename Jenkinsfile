@@ -5,6 +5,7 @@ pipeline {
   options {
     timestamps() // Enable timestamps in the build log
     disableConcurrentBuilds() // The pipeline should run only once at a time
+    preserveStashes(buildCount: 5)
   }
 
   // Environment variables for all stages
@@ -46,27 +47,27 @@ pipeline {
       }
     }
 
-    // stage('DeployProd') {
-    //   when {
-    //     beforeAgent true
-    //     branch 'master'
-    //   }
+    stage('DeployProd') {
+      when {
+        beforeAgent true
+        branch 'master'
+      }
 
-    //   environment {
-    //     ACCOUNT_NAME='as24dev'
-    //   }
+      environment {
+         ACCOUNT_NAME='as24prod'
+      }
 
-    //   agent { node { label 'deploy-as24prod' } }
-    //   steps {
-    //     unstash 'output-dist'
-    //     sh './deploy/deploy.sh'
-    //   }
-    // }
+      agent { node { label 'deploy-as24prod' } }
+      steps {
+        unstash 'output-dist'
+        sh './deploy/deploy.sh'
+      }
+    }
   }
 
   post { 
     failure { 
-      slackSend channel: 'as24_acq_cxp_fizz', color: '#FF0000', message: "💣 ${env.JOB_NAME} [${env.BUILD_NUMBER}] failed."
+      slackSend channel: 'as24_acq_cxp_fizz', color: '#FF0000', message: "💣 ${env.JOB_NAME} [${env.BUILD_NUMBER}] failed. ${env.BUILD_URL}"
     }
   }
 }
