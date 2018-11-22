@@ -58,6 +58,8 @@ module.exports = (gulp, plugins, options) => {
             const tld = url.split('.').pop().replace('/', '');
             const $ = cheerio.load(res.data);
             const manifest = createManifest($('meta[name=description]').attr('content'));
+            // gcm_sender_id presents only in de
+            if (tld === 'de') manifest.gcm_sender_id = "103953800507"
             writeManifestToFile(manifest, tld);
         });
     });
