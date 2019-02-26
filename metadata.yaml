@@ -1,9 +1,20 @@
-service: service-worker
-team: acquisition
+type: application
+id: service-worker
+name: service-worker
 vertical: as24
-segment: cxp
-owner: '#AS24-acquisition-cxp-ds@scout24.com'
-repository_url: https://github.com/Scout24/service-worker.git
+owners:
+- '#AS24-acquisition-cxp-ds@scout24.com'
+availability: true
+integrity: true
+confidentiality: public
+product: pwa
 links:
-  dashboard:
-  - https://acquisition.fizz.cloud.scout24.com/job/s3-website-template
+- type: repository
+  title: Git Repository
+  address: https://github.com/Scout24/service-worker
+- type: documentation
+  title: Readme
+  address: https://github.com/Scout24/service-worker/blob/master/README.md
+- type: runbook
+  title: Fizz Job
+  address: https://acquisition.fizz.cloud.scout24.com/job/s3-website-template
