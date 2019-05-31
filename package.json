@@ -19,7 +19,7 @@
   },
   "homepage": "https://github.com/AutoScout24/service-worker#readme",
   "devDependencies": {
-    "axios": "^0.15.2",
+    "axios": "^0.19",
     "browser-sync": "^2.17.6",
     "cheerio": "^0.22.0",
     "gulp": "^3.9.1",
