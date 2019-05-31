@@ -1,6 +1,6 @@
 const browserSync = require('browser-sync').create();
 
-module.exports = (gulp, plugins, options) => {
+module.exports = async (gulp, plugins, options) => {
     browserSync.init({
         open: false,
         server: {
@@ -12,5 +12,6 @@ module.exports = (gulp, plugins, options) => {
                 res.setHeader('Service-Worker-Allowed', '/');
             }
         }
+
     });
 };
