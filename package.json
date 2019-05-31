@@ -5,7 +5,7 @@
   "main": "service-worker.js",
   "scripts": {
     "generate-manifests": "node bin/generate-manifests.js",
-    "build": "gulp manifests offline-pages"
+    "build": "gulp build"
   },
   "repository": {
     "type": "git",

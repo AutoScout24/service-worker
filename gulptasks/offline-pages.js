@@ -2,7 +2,7 @@ const fs = require('fs');
 const path = require('path');
 const nunjucks = require('nunjucks');
 
-module.exports = (gulp, plugins, options) => {
+module.exports = async (gulp, plugins, options) => {
 
     // TODO: translations needed
     const data = {

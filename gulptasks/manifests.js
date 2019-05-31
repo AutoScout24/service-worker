@@ -3,7 +3,7 @@ const axios = require('axios');
 const cheerio = require('cheerio');
 const path = require('path');
 
-module.exports = (gulp, plugins, options) => {
+module.exports = async (gulp, plugins, options) => {
     const urls = [
         // TODO: What about be? Which language? 
         'https://www.autoscout24.be/',
