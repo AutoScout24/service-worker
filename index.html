@@ -1,35 +1,32 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <meta charset="utf-8">
-    <title>Some Test Page</title>
-    <link rel="manifest" href="/service-worker/manifests/manifest.localhost.json">
-</head>
-<body>
-    <h1>TEST Page</h1>
-    <!--#include virtual="/service-worker/service-worker-fragment.html -->
-    <script>
-        'use strict';
-        if ('serviceWorker' in navigator) {
-            navigator.serviceWorker.register('/service-worker/serviceworker.js', { scope: '/' }).catch(function (e) {
-                console.error('Error when regisering: ', e);
-            });
-
-            window.addEventListener('beforeinstallprompt', function (e) {
-                window.ut = window.ut || [];
-                ut.push(['gtm', 'click', {
-                    linkgroup: 'add-to-home-screen',
-                    linkid: 'prompted'
-                }]);
-
-                e.userChoice.then(function (choiceResult) {
-                    ut.push(['gtm', 'click', {
-                        linkgroup: 'add-to-home-screen',
-                        linkid: choiceResult.outcome
-                    }]);
+    <head>
+        <meta charset="utf-8" />
+        <title>Some Test Page</title>
+        <link rel="manifest" href="/service-worker/manifests/manifest.localhost.json" />
+    </head>
+    <body>
+        <h1>TEST Page</h1>
+        <!--#include virtual="/service-worker/service-worker-fragment.html -->
+        <script>
+            'use strict';
+            if ('serviceWorker' in navigator) {
+                navigator.serviceWorker.register('/service-worker/serviceworker.js', { scope: '/' }).catch(function(e) {
+                    console.error('Error when regisering: ', e);
                 });
-            });
-        }
-    </script>
-</body>
+
+                window.addEventListener('beforeinstallprompt', function(e) {
+                    e.userChoice.then(function(choiceResult) {
+                        window.dataLayer = window.dataLayer || [];
+                        window.dataLayer.push({
+                            event: 'event_trigger',
+                            category: 'service-worker',
+                            action: 'add-to-home-screen-prompt',
+                            label: choiceResult.outcome
+                        });
+                    });
+                });
+            }
+        </script>
+    </body>
 </html>
