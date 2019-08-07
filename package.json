@@ -20,10 +20,10 @@
   "homepage": "https://github.com/AutoScout24/service-worker#readme",
   "devDependencies": {
     "axios": "^0.19",
-    "browser-sync": "^2.17.6",
+    "browser-sync": "^2.26.7",
     "cheerio": "^1.0.0-rc.3",
     "gulp": "^4.0.2",
-    "gulp-load-plugins": "^1.4.0",
-    "nunjucks": "^3.0.0"
+    "gulp-load-plugins": "^2.0.0",
+    "nunjucks": "^3.2.0"
   }
 }
