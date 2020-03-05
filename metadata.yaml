@@ -11,10 +11,10 @@ product: pwa
 links:
 - type: repository
   title: Git Repository
-  address: https://github.com/Scout24/service-worker
+  address: https://github.com/AutoScout24/service-worker
 - type: documentation
   title: Readme
-  address: https://github.com/Scout24/service-worker/blob/master/README.md
+  address: https://github.com/AutoScout24/service-worker/blob/master/README.md
 - type: runbook
   title: Fizz Job
-  address: https://acquisition.fizz.cloud.scout24.com/job/s3-website-template
+  address: https://acquisition.fizz.services.as24.tech/job/service-worker/
