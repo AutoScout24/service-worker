@@ -36,13 +36,17 @@ module.exports = async (gulp, plugins, options) => {
             orientation: 'any',
             display: 'standalone',
             icons: [{
-              src: "https://www.autoscout24.de/assets/external/home/1518/images/favicon/favicon-192x192.png",
+              src: "https://www.autoscout24.de/service-worker/images/android-chrome-192x192.png",
               sizes: "192x192",
               type: "image/png"
             }, {
-              src: "https://www.autoscout24.de/assets/external/home/1974/images/favicon/favicon-512x512.png",
-              sizes: "512x512",
+              src: "https://www.autoscout24.de/service-worker/images/android-chrome-256x256.png",
+              sizes: "256x256",
               type: "image/png"
+            }, {
+                src: "https://www.autoscout24.de/service-worker/images/android-chrome-512x512.png",
+                sizes: "512x512",
+                type: "image/png"
             }],
             theme_color: '#fff',
             background_color: '#fff'

@@ -47,6 +47,17 @@ pipeline {
       }
     }
 
+    stage('confirm') {
+      when {
+        beforeAgent true
+        branch 'master'
+      }
+      agent none
+      steps {
+        input message: "Are you sure you want to got to production?"
+      }
+    }
+
     stage('DeployProd') {
       when {
         beforeAgent true
