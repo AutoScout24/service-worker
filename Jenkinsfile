@@ -11,7 +11,7 @@ pipeline {
   // Environment variables for all stages
   environment {
     AWS_DEFAULT_REGION="eu-west-1"
-    SERVICE="service-worker"
+    SERVICE_BUCKET_NAME="service-worker"
   }
 
   stages {
@@ -29,46 +29,13 @@ pipeline {
       }
     }
 
-    stage('DeployDev') {
+    stage('Deploy') {
       when {
         beforeAgent true
         branch 'master'
       }
 
-      environment {
-        ACCOUNT_NAME='as24dev'
-      }
-
-      agent { node { label 'deploy-as24dev' } }
-
-      steps {
-        unstash 'output-dist'
-        sh './deploy/deploy.sh'
-      }
-    }
-
-    stage('confirm') {
-      when {
-        beforeAgent true
-        branch 'master'
-      }
-      agent none
-      steps {
-        input message: "Are you sure you want to got to production?"
-      }
-    }
-
-    stage('DeployProd') {
-      when {
-        beforeAgent true
-        branch 'master'
-      }
-
-      environment {
-         ACCOUNT_NAME='as24prod'
-      }
-
-      agent { node { label 'deploy-as24prod' } }
+      agent { node { label 'deploy-as24assets-node' } }
       steps {
         unstash 'output-dist'
         sh './deploy/deploy.sh'
@@ -78,10 +45,10 @@ pipeline {
 
   post { 
     failure { 
-      slackSend channel: 'as24_acq_cxp_fizz', color: '#FF0000', message: "💣 ${env.JOB_NAME} [${env.BUILD_NUMBER}] failed. (<${env.BUILD_URL}|Open>)"
+      slackSend channel: 'ug-activation-alerts', color: '#FF0000', message: "💣 ${env.JOB_NAME} [${env.BUILD_NUMBER}] failed. (<${env.BUILD_URL}|Open>)"
     }
     fixed {
-      slackSend channel: 'as24_acq_cxp_fizz', color: '#00FF00', message: "💣 ${env.JOB_NAME} [${env.BUILD_NUMBER}] recovered. (<${env.BUILD_URL}|Open>)"
+      slackSend channel: 'ug-activation-alerts', color: '#00FF00', message: "💣 ${env.JOB_NAME} [${env.BUILD_NUMBER}] recovered. (<${env.BUILD_URL}|Open>)"
     }
 
   }
