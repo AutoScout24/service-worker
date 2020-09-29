@@ -22,9 +22,9 @@ deploy() {
     echo "Uploading to S3: destination"
     echo $SERVICE_BUCKET_NAME
 
-    aws s3 cp service-worker "s3://${SERVICE_BUCKET_NAME}/" --recursive --exclude "*" --include "*.html" --include "*.json" --include "*.js" --cache-control "max-age=60" --acl public-read
+    aws s3 cp service-worker "s3://${SERVICE_BUCKET_NAME}/service-worker/" --recursive --exclude "*" --include "*.html" --include "*.json" --include "*.js" --cache-control "max-age=60" --acl public-read
 
-    aws s3 cp service-worker "s3://${SERVICE_BUCKET_NAME}/" --recursive --exclude "*" --include "*.png" --cache-control "max-age=31536000" --acl public-read
+    aws s3 cp service-worker "s3://${SERVICE_BUCKET_NAME}/service-worker/" --recursive --exclude "*" --include "*.png" --cache-control "max-age=31536000" --acl public-read
 }
 
 deploy
