@@ -7,7 +7,18 @@ fail() {
   exit 1
 }
 
-upload_to_s3() {
+deploy() {
+    echo "Cloudformation for bucket"
+    aws cloudformation deploy --stack-name service-worker \
+      --template-file deploy/stack.yaml \
+      --no-fail-on-empty-changeset \
+      --parameter-overrides "BucketName=$SERVICE_BUCKET_NAME" \
+      --tags "UseCase=$USECASE" \
+          "Segment=$SEGMENT" \
+          "Team=$TEAM" \
+          "Vertical=$VERTICAL" \
+          "Service=$SERVICE"
+    
     echo "Uploading to S3: destination"
     echo $SERVICE_BUCKET_NAME
 
@@ -16,4 +27,4 @@ upload_to_s3() {
     aws s3 cp service-worker "s3://${SERVICE_BUCKET_NAME}/" --recursive --exclude "*" --include "*.png" --cache-control "max-age=31536000" --acl public-read
 }
 
-upload_to_s3
+deploy

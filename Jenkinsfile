@@ -11,7 +11,11 @@ pipeline {
   // Environment variables for all stages
   environment {
     AWS_DEFAULT_REGION="eu-west-1"
-    SERVICE_BUCKET_NAME="service-worker"
+    SERVICE_BUCKET_NAME="as24-service-worker"
+    USECASE="as24-company-pages"
+    SEGMENT="user-growth-tech"
+    TEAM="ug-activation"
+    VERTICAL="as24"
   }
 
   stages {
