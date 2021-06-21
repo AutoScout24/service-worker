@@ -13,11 +13,11 @@ deploy() {
       --template-file deploy/stack.yaml \
       --no-fail-on-empty-changeset \
       --parameter-overrides "BucketName=$SERVICE_BUCKET_NAME" \
-      --tags "UseCase=$USECASE" \
-          "Segment=$SEGMENT" \
-          "Team=$TEAM" \
-          "Vertical=$VERTICAL" \
-          "Service=$SERVICE"
+      --tags "usecase=$USECASE" \
+          "segment=$SEGMENT" \
+          "team=$TEAM" \
+          "vertical=$VERTICAL" \
+          "service=$SERVICE"
     
     echo "Uploading to S3: destination"
     echo $SERVICE_BUCKET_NAME
